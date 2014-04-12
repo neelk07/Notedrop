@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.example.android.geofence.REST.Request;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by neel on 4/11/14.
@@ -23,7 +24,7 @@ public class Login extends Activity {
     boolean login_made = false;
     EditText username, password;
     Button login;
-
+    JSONObject user;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -41,9 +42,7 @@ public class Login extends Activity {
                 password_text = password.getText().toString();
                 response.setText("Request Sent");
                 new Register().execute();
-
-
-
+                new GetUser().execute();
             }
         });
 
@@ -63,7 +62,7 @@ public class Login extends Activity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                response_text = Request.loginUser(username_text,password_text);
+                user = Request.loginUser(username_text,password_text);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -78,25 +77,71 @@ public class Login extends Activity {
 
         @Override
         protected void onPostExecute(Void worked) {
-            login_made = checkResponse(response_text);
+            login_made = checkResponse(user);
+
+            //if (login_made)
+            //    moveToMap(); //move to map
+        }
+    }
+
+    private class GetUser extends AsyncTask<Void,Void,Void> {
+
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                JSONObject object = user.getJSONObject("message");
+                String user_id = object.getString("ID");
+                response.setText(user_id);
+                user = Request.getUser(user_id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Void...error){
+
+        }
+
+
+        @Override
+        protected void onPostExecute(Void worked) {
+            login_made = checkResponse(user);
             if (login_made)
+                response.setText(user.toString());
                 moveToMap(); //move to map
         }
     }
 
 
-    public boolean checkResponse(String r)
+    public boolean checkResponse(JSONObject user)
     {
-        if(r.equals("Success"))
+        if(user == null)
         {
-            response.setText("Login Success!");
-            return true;
-        }
-        else
-        {
-            response.setText(r);
+            response.setText("Null User Object");
             return false;
         }
+
+        try {
+            if(user.getBoolean("success") == true)
+            {
+                response.setText("Login Success!");
+                return true;
+            }
+            else
+            {
+                response.setText(user.getString("message"));
+                return false;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return false;
 
     }
 
