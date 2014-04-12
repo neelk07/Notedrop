@@ -19,7 +19,7 @@ package com.example.android.geofence;
 import com.google.android.gms.location.Geofence;
 
 /**
- * A single Geofence object, defined by its center (latitude and longitude position) and radius.
+ * A single GeofenceMap object, defined by its center (latitude and longitude position) and radius.
  */
 public class SimpleGeofence {
     // Instance variables
@@ -31,13 +31,13 @@ public class SimpleGeofence {
     private int mTransitionType;
 
     /**
-     * @param geofenceId The Geofence's request ID
-     * @param latitude Latitude of the Geofence's center. The value is not checked for validity.
-     * @param longitude Longitude of the Geofence's center. The value is not checked for validity.
+     * @param geofenceId The GeofenceMap's request ID
+     * @param latitude Latitude of the GeofenceMap's center. The value is not checked for validity.
+     * @param longitude Longitude of the GeofenceMap's center. The value is not checked for validity.
      * @param radius Radius of the geofence circle. The value is not checked for validity
-     * @param expiration Geofence expiration duration in milliseconds The value is not checked for
+     * @param expiration GeofenceMap expiration duration in milliseconds The value is not checked for
      * validity.
-     * @param transition Type of Geofence transition. The value is not checked for validity.
+     * @param transition Type of GeofenceMap transition. The value is not checked for validity.
      */
     public SimpleGeofence(
             String geofenceId,
@@ -108,20 +108,20 @@ public class SimpleGeofence {
 
     /**
      * Get the geofence transition type
-     * @return Transition type (see Geofence)
+     * @return Transition type (see GeofenceMap)
      */
     public int getTransitionType() {
         return mTransitionType;
     }
 
     /**
-     * Creates a Location Services Geofence object from a
+     * Creates a Location Services GeofenceMap object from a
      * SimpleGeofence.
      *
-     * @return A Geofence object
+     * @return A GeofenceMap object
      */
     public Geofence toGeofence() {
-        // Build a new Geofence object
+        // Build a new GeofenceMap object
         return new Geofence.Builder()
                        .setRequestId(getId())
                        .setTransitionTypes(mTransitionType)

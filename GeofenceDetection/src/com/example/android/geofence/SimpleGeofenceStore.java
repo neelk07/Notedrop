@@ -100,7 +100,7 @@ public class SimpleGeofenceStore {
             expirationDuration != GeofenceUtils.INVALID_LONG_VALUE &&
             transitionType != GeofenceUtils.INVALID_INT_VALUE) {
 
-            // Return a true Geofence object
+            // Return a true GeofenceMap object
             return new SimpleGeofence(id, lat, lng, radius, expirationDuration, transitionType);
 
         // Otherwise, return null.
@@ -124,7 +124,7 @@ public class SimpleGeofenceStore {
          */
         Editor editor = mPrefs.edit();
 
-        // Write the Geofence values to SharedPreferences
+        // Write the GeofenceMap values to SharedPreferences
         editor.putFloat(
                 getGeofenceFieldKey(id, GeofenceUtils.KEY_LATITUDE),
                 (float) geofence.getLatitude());
@@ -162,11 +162,11 @@ public class SimpleGeofenceStore {
     }
 
     /**
-     * Given a Geofence object's ID and the name of a field
+     * Given a GeofenceMap object's ID and the name of a field
      * (for example, GeofenceUtils.KEY_LATITUDE), return the key name of the
      * object's values in SharedPreferences.
      *
-     * @param id The ID of a Geofence object
+     * @param id The ID of a GeofenceMap object
      * @param fieldName The field represented by the key
      * @return The full key name of a value in SharedPreferences
      */
