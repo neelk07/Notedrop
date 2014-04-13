@@ -37,8 +37,6 @@ public class Request {
 
     private static final String CREATE_NOTE_URL = DOMAIN + "/note/create";
 
-
-
     public static String createUser(String username, String password) throws JSONException {
             // String response
             InputStream inputStream = null;

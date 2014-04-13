@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.example.android.geofence.REST.Request;
 import org.json.JSONException;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
  * Created by neel on 4/11/14.
  */
@@ -34,6 +36,11 @@ public class Registration extends Activity {
             public void onClick(View v) {
                 username_text = username.getText().toString();
                 password_text = password.getText().toString();
+                try {
+                    password_text = Request.md5Hash(password_text);
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
                 response.setText("Request Sent");
                 new Register().execute();
             }

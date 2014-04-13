@@ -12,6 +12,8 @@ import com.example.android.geofence.REST.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
+
 /**
  * Created by neel on 4/11/14.
  */
@@ -41,6 +43,11 @@ public class Login extends Activity {
                 username_text = username.getText().toString();
                 password_text = password.getText().toString();
                 response.setText("Request Sent");
+                try {
+                    password_text = Request.md5Hash(password_text);
+                } catch (NoSuchAlgorithmException e) {
+                    e.printStackTrace();
+                }
                 new Register().execute();
                 new GetUser().execute();
             }
