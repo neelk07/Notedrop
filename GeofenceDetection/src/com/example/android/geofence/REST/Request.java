@@ -31,10 +31,9 @@ public class Request {
     private static final String CREATE_USER_URL = DOMAIN + "/user/create";
     private static final String LOGIN_USER_URL = DOMAIN + "/user/login";
     private static final String GET_USER_URL = DOMAIN + "/user/get/";
+    private static final String UPDATE_USER_URL = DOMAIN + "/user/update";
     private static final String GET_NOTE_URL = DOMAIN + "/note/get/";
     private static final String DELETE_NOTE_URL = DOMAIN + "/note/delete";
-    private static final String UPDATE_USER_URL = DOMAIN + "/user/update";
-
     private static final String CREATE_NOTE_URL = DOMAIN + "/note/create";
 
     public static String createUser(String username, String password) throws JSONException {
@@ -234,7 +233,7 @@ public class Request {
         return null;
     }
 
-    public static JSONObject createNote(String text, String latitude, String longitude, String radius, String start_date, String end_date, String [] users) throws JSONException {
+    public static JSONObject createNote(String text, String latitude, String longitude, String radius, String start_date, String end_date, String users) throws JSONException {
         // String response
         InputStream inputStream = null;
         String result = "";
@@ -243,7 +242,7 @@ public class Request {
         HttpClient httpclient = new DefaultHttpClient();
 
         // 2. make POST request to the given URL
-        HttpPost httpPost = new HttpPost(CREATE_USER_URL);
+        HttpPost httpPost = new HttpPost(CREATE_NOTE_URL);
 
         String json = "";
 
@@ -294,11 +293,12 @@ public class Request {
             e.printStackTrace();
         }
 
+        Log.v("YoYo", result);
         JSONObject object = new JSONObject(result);
         if(object.getBoolean("success") == true)
             return object;
         else
-            return null;
+            return object;
     }
 
     public static JSONObject getNote(String note_id){

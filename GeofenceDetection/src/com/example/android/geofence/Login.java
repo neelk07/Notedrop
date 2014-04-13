@@ -27,6 +27,7 @@ public class Login extends Activity {
     EditText username, password;
     Button login;
     JSONObject user;
+    JSONObject note;
 
 
     public void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class Login extends Activity {
         setContentView(R.layout.login);
         retrieveViews();
 
-        Intent i = new Intent(this, GeofenceMap.class);
-        startActivity(i);
+        //Intent i = new Intent(this, Registration.class);
+        //startActivity(i);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,13 +44,14 @@ public class Login extends Activity {
                 username_text = username.getText().toString();
                 password_text = password.getText().toString();
                 response.setText("Request Sent");
+                /*
                 try {
                     password_text = Request.md5Hash(password_text);
                 } catch (NoSuchAlgorithmException e) {
                     e.printStackTrace();
                 }
+                */
                 new Register().execute();
-                new GetUser().execute();
             }
         });
 
@@ -85,25 +87,24 @@ public class Login extends Activity {
         @Override
         protected void onPostExecute(Void worked) {
             login_made = checkResponse(user);
+            new CreateNote().execute();
+
 
             //if (login_made)
             //    moveToMap(); //move to map
         }
     }
 
-    private class GetUser extends AsyncTask<Void,Void,Void> {
+    private class CreateNote extends AsyncTask<Void,Void,Void> {
 
 
         @Override
         protected Void doInBackground(Void... params) {
 
             try {
-                JSONObject object = user.getJSONObject("message");
-                String user_id = object.getString("ID");
-                response.setText(user_id);
-                user = Request.getUser(user_id);
+                note = Request.createNote("testing", "12.2323", "23.23232", "43", "12/23/43", "11/23/45", "5349f467c81a060200e0cfc9");
             } catch (JSONException e) {
-                e.printStackTrace();
+                note = new JSONObject();
             }
 
             return null;
@@ -117,10 +118,11 @@ public class Login extends Activity {
 
         @Override
         protected void onPostExecute(Void worked) {
-            login_made = checkResponse(user);
-            if (login_made)
-                response.setText(user.toString());
-                moveToMap(); //move to map
+            response.setText(note.toString());
+            //login_made = checkResponse(user);
+            //if (login_made)
+            //    response.setText(user.toString());
+                //moveToMap(); //move to map
         }
     }
 
