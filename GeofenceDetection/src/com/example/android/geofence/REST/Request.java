@@ -31,6 +31,7 @@ public class Request {
     private static final String CREATE_USER_URL = DOMAIN + "/user/create";
     private static final String LOGIN_USER_URL = DOMAIN + "/user/login";
     private static final String GET_USER_URL = DOMAIN + "/user/get/";
+    private static final String FIND_USER_URL = DOMAIN + "/user/finduser/";
     private static final String UPDATE_USER_URL = DOMAIN + "/user/update";
     private static final String GET_NOTE_URL = DOMAIN + "/note/get/";
     private static final String DELETE_NOTE_URL = DOMAIN + "/note/delete";
@@ -231,6 +232,135 @@ public class Request {
         }
 
         return null;
+    }
+
+    public static JSONObject findUser(String username) throws JSONException {
+        // String response
+        InputStream inputStream = null;
+        String result = "";
+
+        // 1. create HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // 2. make POST request to the given URL
+        HttpPut httpPut = new HttpPut(FIND_USER_URL);
+
+        String json = "";
+
+        // 3. build jsonObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("username", username);
+
+        // 4. convert JSONObject to JSON to String
+        json = jsonObject.toString();
+
+        // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+        // ObjectMapper mapper = new ObjectMapper();
+        // json = mapper.writeValueAsString(person);
+
+        // 5. set json to StringEntity
+        StringEntity se = null;
+        try {
+            se = new StringEntity(json, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 6. set httpPost Entity
+        httpPut.setEntity(se);
+
+        // 7. Set some headers to inform server about the type of the content
+        httpPut.setHeader("Accept", "application/json");
+        httpPut.setHeader("Content-type", "application/json");
+
+        // 8. Execute POST request to the given URL
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpclient.execute(httpPut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = EntityUtils.toString(httpResponse.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject object = new JSONObject(result);
+        if(object.getBoolean("success") == true)
+            return object;
+        else
+            return null;
+    }
+
+    public static JSONObject updateUser(String user_id, String newfriends, String removefriends, String newnotes, String removenotes) throws JSONException {
+        // String response
+        InputStream inputStream = null;
+        String result = "";
+
+        // 1. create HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // 2. make POST request to the given URL
+        HttpPut httpPut = new HttpPut(UPDATE_USER_URL);
+
+        String json = "";
+
+        // 3. build jsonObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("userID", user_id);
+        if(newfriends != null)
+            jsonObject.accumulate("newfriends", newfriends);
+        if(removefriends != null)
+            jsonObject.accumulate("removefriends",removefriends);
+        if(newnotes != null)
+            jsonObject.accumulate("newnotes", newnotes);
+        if(removenotes != null)
+            jsonObject.accumulate("removenotes", removenotes);
+
+        // 4. convert JSONObject to JSON to String
+        json = jsonObject.toString();
+
+        // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+        // ObjectMapper mapper = new ObjectMapper();
+        // json = mapper.writeValueAsString(person);
+
+        // 5. set json to StringEntity
+        StringEntity se = null;
+        try {
+            se = new StringEntity(json, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 6. set httpPost Entity
+        httpPut.setEntity(se);
+
+        // 7. Set some headers to inform server about the type of the content
+        httpPut.setHeader("Accept", "application/json");
+        httpPut.setHeader("Content-type", "application/json");
+
+        // 8. Execute POST request to the given URL
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpclient.execute(httpPut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = EntityUtils.toString(httpResponse.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject object = new JSONObject(result);
+        if(object.getBoolean("success") == true)
+            return object;
+        else
+            return null;
+
     }
 
     public static JSONObject createNote(String text, String latitude, String longitude, String radius, String start_date, String end_date, String users) throws JSONException {

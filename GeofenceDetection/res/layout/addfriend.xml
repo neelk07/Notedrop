@@ -4,4 +4,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Add Friends!"
+            android:id="@+id/add_friends_title"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dip"/>
+
+    <EditText
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/username_edit"
+            android:layout_below="@+id/add_friends_title" />
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/search_btn"
+            android:layout_alignBottom="@+id/username_edit"
+            android:layout_toRightOf="@+id/add_friends_title"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Found_Username"
+            android:id="@+id/found_username"
+            android:layout_marginTop="49dp"
+            android:layout_below="@+id/username_edit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"/>
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:id="@+id/add_btn"
+            android:layout_alignBottom="@+id/found_username"
+            android:layout_toRightOf="@+id/username_edit"
+            android:layout_alignRight="@+id/search_btn"
+            android:layout_alignEnd="@+id/search_btn"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite a Friend!"
+            android:id="@+id/invite" android:layout_alignParentBottom="true"
+            android:layout_marginBottom="54dp" android:layout_alignRight="@+id/add_btn"
+            android:layout_alignEnd="@+id/add_btn" android:layout_alignLeft="@+id/found_username"
+            android:layout_alignStart="@+id/found_username"/>
+
+
 </RelativeLayout>

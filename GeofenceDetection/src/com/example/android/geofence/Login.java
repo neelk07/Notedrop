@@ -28,7 +28,7 @@ public class Login extends Activity {
     boolean login_made = false;
     EditText username, password;
     Button login;
-    JSONObject user;
+    public static JSONObject user;
     JSONObject note;
     File userInfo;
 
@@ -104,7 +104,7 @@ public class Login extends Activity {
                     e.printStackTrace();
                 }
 
-                moveToMap();
+                moveToHome();
             }
 
             //response.setText(user.toString());
@@ -177,6 +177,12 @@ public class Login extends Activity {
     public void moveToMap()
     {
         Intent i = new Intent(this,GeofenceMap.class);
+        startActivity(i);
+    }
+
+    public void moveToHome()
+    {
+        Intent i = new Intent(this, Home.class);
         startActivity(i);
     }
 

@@ -41,11 +41,6 @@
             android:textColor="#000000"/>
 
 
-    <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,17 +86,6 @@
                 android:layout_alignRight="@id/password_edit"
                 android:layout_alignLeft="@id/password_edit"
                 android:layout_centerHorizontal="true"/>
-
-
-
-    </RelativeLayout>
-            android:text="Login"
-            android:id="@+id/login_btn"
-            android:layout_below="@id/password_edit"
-            android:layout_marginTop="50dip"
-            android:layout_alignRight="@id/password_edit"
-            android:layout_alignLeft="@id/password_edit"
-            android:layout_centerHorizontal="true"/>
 
 
 
