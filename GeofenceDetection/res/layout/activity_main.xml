@@ -41,7 +41,7 @@
                 android:layout_width="200dip"
                 android:layout_height="50dip"
                 android:hint="description"
-                android:layout_alignLeft="@id/value_radius_1"
+                android:layout_centerHorizontal="true"
                 android:id="@+id/description"
                 android:layout_below="@id/label_title"/>
 
@@ -51,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:hint="radius"
                 android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/label_radius_1"
                 android:inputType="numberDecimal"
                 android:layout_below="@id/description"
                 android:layout_alignRight="@+id/label_title"
