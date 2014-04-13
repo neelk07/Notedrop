@@ -385,8 +385,7 @@ public class Request {
         HttpClient httpclient = new DefaultHttpClient();
 
         // 2. make POST request to the given URL
-        HttpDelete httpDelete = new HttpDelete(DELETE_NOTE_URL);
-
+        HttpPut httpPut = new HttpPut(DELETE_NOTE_URL);
 
         String json = "";
 
@@ -396,7 +395,6 @@ public class Request {
 
         // 4. convert JSONObject to JSON to String
         json = jsonObject.toString();
-
 
         // ** Alternative way to convert Person object to JSON string usin Jackson Lib
         // ObjectMapper mapper = new ObjectMapper();
@@ -411,17 +409,16 @@ public class Request {
         }
 
         // 6. set httpPost Entity
-        httpDelete.setEntity(se);
-
+        httpPut.setEntity(se);
 
         // 7. Set some headers to inform server about the type of the content
-        httpDelete.setHeader("Accept", "application/json");
-        httpDelete.setHeader("Content-type", "application/json");
+        httpPut.setHeader("Accept", "application/json");
+        httpPut.setHeader("Content-type", "application/json");
 
         // 8. Execute POST request to the given URL
         HttpResponse httpResponse = null;
         try {
-            httpResponse = httpclient.execute(httpDelete);
+            httpResponse = httpclient.execute(httpPut);
         } catch (IOException e) {
             e.printStackTrace();
         }
