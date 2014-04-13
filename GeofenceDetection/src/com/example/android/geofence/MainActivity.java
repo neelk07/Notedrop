@@ -201,6 +201,7 @@ public class MainActivity extends FragmentActivity {
 
         // Get handles to the GeofenceMap editor fields in the UI
         retrieveViews();
+
         /*
         mLatitude1 = (EditText) findViewById(R.id.value_latitude_1);
         mLongitude1 = (EditText) findViewById(R.id.value_longitude_1);
@@ -215,18 +216,18 @@ public class MainActivity extends FragmentActivity {
     public void retrieveViews()
     {
         // Get handles to the GeofenceMap editor fields in the UI
-        mLatitude1 = (EditText) findViewById(R.id.value_latitude_1);
-        mLongitude1 = (EditText) findViewById(R.id.value_longitude_1);
+        //mLatitude1 = (EditText) findViewById(R.id.value_latitude_1);
+        //mLongitude1 = (EditText) findViewById(R.id.value_longitude_1);
         mRadius1 = (EditText) findViewById(R.id.value_radius_1);
 
         description = (EditText)findViewById(R.id.description);
         start_date = (DatePicker)findViewById(R.id.datePicker);
 
-        mLatitude1.setText(String.valueOf(latitude));
-        mLongitude1.setText(String.valueOf(longitude));
+        //mLatitude1.setText(String.valueOf(latitude));
+        //mLongitude1.setText(String.valueOf(longitude));
         mRadius1.setText(String.valueOf(DEFAULT_RADIUS));
 
-        sharedUsers = (TextView) findViewById(R.id.friend);
+        sharedUsers = (TextView) findViewById(R.id.ending_date_text);
         sharedUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -685,6 +686,7 @@ public class MainActivity extends FragmentActivity {
          * creates a Location Services GeofenceMap object from a
          * flat object
          */
+
         mCurrentGeofences.add(mUIGeofence1.toGeofence());
         mCurrentGeofences.add(mUIGeofence2.toGeofence());
 
@@ -694,10 +696,10 @@ public class MainActivity extends FragmentActivity {
             mGeofenceRequester.addGeofences(mCurrentGeofences);
         } catch (UnsupportedOperationException e) {
             // Notify user that previous request hasn't finished.
-            Toast.makeText(this, R.string.add_geofences_already_requested_error,
-                        Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.add_geofences_already_requested_error, Toast.LENGTH_LONG).show();
         }
     }
+
     /**
      * Check all the input values and flag those that are incorrect
      * @return true if all the widget values are correct; otherwise false
@@ -764,7 +766,7 @@ public class MainActivity extends FragmentActivity {
 
             mLongitude2.setBackgroundColor(Color.BLACK);
         }
-        */
+
 
 
         if (TextUtils.isEmpty(mRadius2.getText())) {
@@ -777,6 +779,7 @@ public class MainActivity extends FragmentActivity {
 
             mRadius2.setBackgroundColor(Color.BLACK);
         }
+        */
 
         /*
          * If all the input fields have been entered, test to ensure that their values are within
@@ -793,7 +796,6 @@ public class MainActivity extends FragmentActivity {
             double lat2 = Double.valueOf(mLatitude1.getText().toString());
             double lng2 = Double.valueOf(mLongitude1.getText().toString());
             float rd1 = Float.valueOf(mRadius1.getText().toString());
-            float rd2 = Float.valueOf(mRadius2.getText().toString());
 
             /*
              * Test latitude and longitude for minimum and maximum values. Highlight incorrect
@@ -868,8 +870,8 @@ public class MainActivity extends FragmentActivity {
 
                 mRadius1.setBackgroundColor(Color.BLACK);
             }
-            if (rd2 < GeofenceUtils.MIN_RADIUS) {
-                mRadius2.setBackgroundColor(Color.RED);
+            if (rd1 < GeofenceUtils.MIN_RADIUS) {
+                mRadius1.setBackgroundColor(Color.RED);
                 Toast.makeText(
                         this,
                         R.string.geofence_input_error_radius_invalid,
@@ -879,7 +881,7 @@ public class MainActivity extends FragmentActivity {
                 inputOK = false;
             } else {
 
-                mRadius2.setBackgroundColor(Color.BLACK);
+                mRadius1.setBackgroundColor(Color.BLACK);
             }
         }
 

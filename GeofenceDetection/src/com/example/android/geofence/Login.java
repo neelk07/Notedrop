@@ -97,7 +97,7 @@ public class Login extends Activity {
             {
                 cacheLoginJson(user, userInfo);
                 try {
-                user = readCachedLoginJSON(userInfo);
+                readCachedLoginJSON(userInfo);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
@@ -107,7 +107,8 @@ public class Login extends Activity {
                 moveToMap();
             }
 
-            response.setText(user.toString());
+            //response.setText(user.toString());
+            //new CreateNote().execute();
             //new CreateNote().execute();
             //if (login_made)
             //    moveToMap(); //move to map
@@ -121,7 +122,7 @@ public class Login extends Activity {
         protected Void doInBackground(Void... params) {
 
             try {
-                note = Request.createNote("testing", "12.2323", "23.23232", "43", "12/23/43", "11/23/45", "5349f467c81a060200e0cfc9");
+                note = Request.createNote("testing note input", "12.2323", "23.23232", "43", "12/23/43", "11/23/45", "534a28defe22930200f3b999");
             } catch (JSONException e) {
                 note = new JSONObject();
             }

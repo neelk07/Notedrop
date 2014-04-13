@@ -27,100 +27,78 @@
         android:layout_height="match_parent" >
 
         <TextView
-            android:id="@+id/label_geofence_1"
+            android:id="@+id/label_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/geofence1"
+            android:textSize="20sp"
+            android:text="Create Your Notedrop!"
             android:textStyle="bold"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"/>
 
         <TextView
-            android:id="@+id/label_latitude_1"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/label_geofence_1"
-            android:layout_alignTop="@+id/value_latitude_1"
-            android:text="@string/latitude"/>
-        <EditText
-            android:id="@+id/value_latitude_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="5dp"
-            android:layout_below="@id/label_geofence_1"
-            android:layout_toRightOf="@id/label_latitude_1"
-            android:inputType="numberDecimal|numberSigned" />
-        <TextView
-            android:id="@+id/label_longitude_1"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/label_latitude_1"
-            android:layout_alignTop="@+id/value_longitude_1"
-            android:text="@string/longitude"/>
-        <EditText
-            android:id="@+id/value_longitude_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/label_longitude_1"
-            android:layout_below="@id/value_latitude_1"
-            android:inputType="numberDecimal|numberSigned" />
-        <TextView
             android:id="@+id/label_radius_1"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@id/label_longitude_1"
-            android:layout_alignTop="@+id/value_radius_1"
+            android:layout_below="@id/label_title"
             android:text="@string/radius"/>
         <EditText
             android:id="@+id/value_radius_1"
-            android:layout_width="wrap_content"
+            android:layout_width="200dip"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_below="@id/value_longitude_1"
+            android:hint="radius"
             android:layout_marginLeft="5dp"
             android:layout_toRightOf="@id/label_radius_1"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal" android:layout_alignTop="@+id/label_radius_1"
+            android:layout_alignRight="@+id/label_title" android:layout_alignEnd="@+id/label_title"/>
 
         <EditText
                 android:layout_width="200dip"
                 android:layout_height="50dip"
                 android:hint="description"
+                android:layout_alignLeft="@id/value_radius_1"
                 android:id="@+id/description"
                 android:layout_below="@id/value_radius_1"/>
 
         <TextView
                 android:layout_width="200dip"
                 android:layout_height="50dip"
-                android:hint="Users"
-                android:text="Me (Add More)"
-                android:id="@+id/friend"
+                android:text="Beginning Date"
+                android:layout_alignLeft="@id/description"
                 android:layout_below="@id/description"/>
 
-        <TextView
-                android:layout_width="100dip"
-                android:layout_height="50dip"
-                android:text="End Date"
-                android:layout_below="@id/friend"
-                android:id="@+id/end_date"/>
 
         <DatePicker
                 android:layout_width="wrap_content"
-                android:layout_height="200dip"
+                android:layout_height="150dip"
                 android:id="@+id/datePicker"
-                android:layout_below="@+id/friend"
-                android:layout_centerHorizontal="true"/>
+                android:layout_marginTop="15dip"
+                android:layout_below="@+id/description"
+                android:layout_centerHorizontal="true"
+                android:calendarViewShown="false"/>
+
+        <TextView
+                android:layout_width="200dip"
+                android:layout_height="50dip"
+                android:text="Ending Date"
+                android:layout_alignLeft="@id/description"
+                android:id="@+id/ending_date_text"
+                android:layout_below="@id/datePicker"/>
+
+        <DatePicker
+                android:layout_width="wrap_content"
+                android:layout_height="150dip"
+                android:id="@+id/datePicker2"
+                android:layout_below="@+id/ending_date_text"
+                android:layout_centerHorizontal="true"
+                android:calendarViewShown="false"/>
 
 
         <Button
             android:id="@+id/register"
-            android:layout_below="@id/datePicker"
+            android:layout_below="@id/datePicker2"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -129,7 +107,7 @@
             android:onClick="onRegisterClicked" />
         <Button
             android:id="@+id/unregister_by_pending_intent"
-            android:layout_below="@id/datePicker"
+            android:layout_below="@id/datePicker2"
             android:layout_toRightOf="@id/register"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
