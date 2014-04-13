@@ -19,9 +19,5 @@ public class MyNotes extends Fragment {
         return view;
     }
 
-    public void moveToMap(View v)
-    {
-        Intent i = new Intent(getActivity(), GeofenceMap.class);
-        startActivity(i);
-    }
+
 }

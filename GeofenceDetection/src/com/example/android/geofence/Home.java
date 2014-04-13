@@ -1,12 +1,14 @@
 package com.example.android.geofence;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import com.example.android.geofence.home_fragments.AddFriend;
 import com.example.android.geofence.home_fragments.MyNotes;
 
@@ -46,6 +48,12 @@ public class Home extends FragmentActivity {
         public int getCount() {
             return 2;
         }
+    }
+
+    public void moveToMap(View v)
+    {
+        Intent i = new Intent(this, GeofenceMap.class);
+        startActivity(i);
     }
 
 }

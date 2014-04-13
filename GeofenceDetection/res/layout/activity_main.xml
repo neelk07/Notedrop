@@ -37,45 +37,42 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"/>
 
-        <TextView
-            android:id="@+id/label_radius_1"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@id/label_title"
-            android:text="@string/radius"/>
-        <EditText
-            android:id="@+id/value_radius_1"
-            android:layout_width="200dip"
-            android:layout_height="wrap_content"
-            android:hint="radius"
-            android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/label_radius_1"
-            android:inputType="numberDecimal" android:layout_alignTop="@+id/label_radius_1"
-            android:layout_alignRight="@+id/label_title" android:layout_alignEnd="@+id/label_title"/>
-
         <EditText
                 android:layout_width="200dip"
                 android:layout_height="50dip"
                 android:hint="description"
                 android:layout_alignLeft="@id/value_radius_1"
                 android:id="@+id/description"
-                android:layout_below="@id/value_radius_1"/>
+                android:layout_below="@id/label_title"/>
+
+        <EditText
+                android:id="@+id/value_radius_1"
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:hint="radius"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@id/label_radius_1"
+                android:inputType="numberDecimal"
+                android:layout_below="@id/description"
+                android:layout_alignRight="@+id/label_title"
+                android:layout_alignEnd="@+id/label_title"/>
 
         <TextView
                 android:layout_width="200dip"
                 android:layout_height="50dip"
+                android:id="@+id/b_text"
+                android:gravity="center"
                 android:text="Beginning Date"
                 android:layout_alignLeft="@id/description"
-                android:layout_below="@id/description"/>
+                android:layout_below="@id/value_radius_1"/>
 
 
         <DatePicker
                 android:layout_width="wrap_content"
                 android:layout_height="150dip"
                 android:id="@+id/datePicker"
-                android:layout_marginTop="15dip"
-                android:layout_below="@+id/description"
+                android:layout_marginTop="0dip"
+                android:layout_below="@+id/b_text"
                 android:layout_centerHorizontal="true"
                 android:calendarViewShown="false"/>
 
@@ -83,6 +80,7 @@
                 android:layout_width="200dip"
                 android:layout_height="50dip"
                 android:text="Ending Date"
+                android:gravity="center"
                 android:layout_alignLeft="@id/description"
                 android:id="@+id/ending_date_text"
                 android:layout_below="@id/datePicker"/>
@@ -93,8 +91,28 @@
                 android:id="@+id/datePicker2"
                 android:layout_below="@+id/ending_date_text"
                 android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dip"
                 android:calendarViewShown="false"/>
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Add Friends!"
+                android:id="@+id/add_friends"
+                android:layout_below="@id/datePicker2"
+                android:layout_marginBottom="20dip"
+                android:layout_centerHorizontal="true"/>
+
+        <Button
+                android:layout_width="300dip"
+                android:layout_height="50dip"
+                android:layout_below="@id/add_friends"
+                android:id="@+id/create_notes"
+                android:text="Create Notedrop!"
+                android:layout_centerHorizontal="true"/>
+
+        <!--
 
         <Button
             android:id="@+id/register"
@@ -124,7 +142,7 @@
             android:layout_alignBaseline="@+id/unregister_geofence2"
             android:text="@string/unregister_geofence1"
             android:onClick="onUnregisterGeofence1Clicked" />
-
+          -->
 
 
     </RelativeLayout>

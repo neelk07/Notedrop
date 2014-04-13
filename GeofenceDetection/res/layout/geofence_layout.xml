@@ -8,17 +8,16 @@
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="400dip"
+            android:layout_height="450dip"
             android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
     <TextView
-            android:layout_width="300dip"
+            android:layout_width="200dip"
             android:layout_height="75dip"
-            android:textSize="30dip"
+            android:textSize="20dip"
             android:id="@+id/pick_loc_text"
             android:layout_below="@id/map"
-            android:text="Pick A Location"
-            android:gravity="center"/>
+            android:text="Pick A Location"/>
 
     <Button
             android:layout_width="50dip"

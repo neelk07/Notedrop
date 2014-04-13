@@ -115,90 +115,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddFriend.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/home_fragments/AddFriend.java">
+      <file leaf-file-name="CreateNotedrop.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/CreateNotedrop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="75" selection-start="3721" selection-end="3721" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="3765">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1836#2134#0" expanded="true" />
-                <element signature="e#2123#2124#0" expanded="true" />
-                <element signature="e#2169#2329#0" expanded="true" />
-                <element signature="e#2318#2319#0" expanded="true" />
-                <element signature="e#2367#2930#0" expanded="true" />
-                <element signature="e#2919#2920#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Request.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/REST/Request.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="311" column="67" selection-start="10478" selection-end="10478" vertical-scroll-proportion="0.0" vertical-offset="608" max-vertical-offset="2055">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#createUser#0;class#Request#0" expanded="false" />
-                <element signature="method#loginUser#0;class#Request#0" expanded="false" />
-                <element signature="method#getUser#0;class#Request#0" expanded="false" />
-                <element signature="method#findUser#0;class#Request#0" expanded="false" />
-                <element signature="method#createNote#0;class#Request#0" expanded="false" />
-                <element signature="method#getNote#0;class#Request#0" expanded="false" />
-                <element signature="method#deleteNote#0;class#Request#0" expanded="false" />
-                <element signature="method#md5Hash#0;class#Request#0" expanded="false" />
-                <element signature="method#convertInputStreamToString#0;class#Request#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GeofenceMap.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/GeofenceMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="138" column="53" selection-start="4232" selection-end="4232" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="5445">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5419#6231#0" expanded="true" />
-                <element signature="e#6220#6221#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="geofence_layout.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/geofence_layout.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="37" selection-start="429" selection-end="429" vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="525">
+            <state line="91" column="0" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.610052" vertical-offset="893" max-vertical-offset="1470">
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Login.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="30" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="3405">
+            <state line="116" column="0" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2925">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyNotes.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/home_fragments/MyNotes.java">
+      <file leaf-file-name="activity_main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="31" selection-start="618" selection-end="618" vertical-scroll-proportion="0.3100159" vertical-offset="0" max-vertical-offset="629">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/register.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="1577" selection-end="1577" vertical-scroll-proportion="-8.518518" vertical-offset="385" max-vertical-offset="1470">
+            <state line="110" column="45" selection-start="4444" selection-end="4444" vertical-scroll-proportion="-15.0" vertical-offset="1245" max-vertical-offset="2340">
               <folding />
             </state>
           </provider>
@@ -225,19 +163,20 @@
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/Registration.java" />
         <option value="$PROJECT_DIR$/res/layout/login.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/MainActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/home.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/android/geofence/Home.java" />
         <option value="$PROJECT_DIR$/res/layout/register.xml" />
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/REST/Request.java" />
-        <option value="$PROJECT_DIR$/src/com/example/android/geofence/Login.java" />
         <option value="$PROJECT_DIR$/res/layout/addfriend.xml" />
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/home_fragments/AddFriend.java" />
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/FriendsDialog.java" />
-        <option value="$PROJECT_DIR$/res/layout/geofence_layout.xml" />
         <option value="$PROJECT_DIR$/res/layout/mynotes.xml" />
         <option value="$PROJECT_DIR$/src/com/example/android/geofence/home_fragments/MyNotes.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/geofence/Home.java" />
+        <option value="$PROJECT_DIR$/res/layout/geofence_layout.xml" />
+        <option value="$PROJECT_DIR$/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/src/com/example/android/geofence/Login.java" />
+        <option value="$PROJECT_DIR$/src/com/example/android/geofence/CreateNotedrop.java" />
       </list>
     </option>
   </component>
@@ -610,7 +549,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.079831935" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15266107" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -665,13 +604,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/SimpleGeofence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="70" selection-start="2488" selection-end="2488" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1725">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/ReceiveTransitionsIntentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="34" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="2655">
@@ -933,38 +865,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="16" selection-start="3854" selection-end="3854" vertical-scroll-proportion="2.764706" vertical-offset="45" max-vertical-offset="2070">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="53" selection-start="485" selection-end="485" vertical-scroll-proportion="0.20714286" vertical-offset="79" max-vertical-offset="840">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="21" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.59099436" vertical-offset="240" max-vertical-offset="915">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/register.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1577" selection-end="1577" vertical-scroll-proportion="-8.518518" vertical-offset="385" max-vertical-offset="1470">
           <folding />
         </state>
       </provider>
@@ -1022,31 +925,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/geofence_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="37" selection-start="429" selection-end="429" vertical-scroll-proportion="-5.5555553" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/FriendsDialog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="51" selection-start="1974" selection-end="1974" vertical-scroll-proportion="0.9062003" vertical-offset="0" max-vertical-offset="2070">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/GeofenceMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="53" selection-start="4232" selection-end="4232" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="5445">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5419#6231#0" expanded="true" />
-            <element signature="e#6220#6221#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1060,16 +942,71 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/Login.java">
+    <entry file="file://$PROJECT_DIR$/res/layout/geofence_layout.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="30" selection-start="2419" selection-end="2419" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="3405">
+        <state line="19" column="42" selection-start="776" selection-end="776" vertical-scroll-proportion="0.41322315" vertical-offset="135" max-vertical-offset="510">
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/GeofenceMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="85" selection-start="3059" selection-end="3059" vertical-scroll-proportion="0.23970944" vertical-offset="1206" max-vertical-offset="5445">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5419#6231#0" expanded="true" />
+            <element signature="e#6220#6221#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/home_fragments/MyNotes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="618" selection-end="618" vertical-scroll-proportion="0.3100159" vertical-offset="0" max-vertical-offset="629">
+        <state line="21" column="0" selection-start="619" selection-end="619" vertical-scroll-proportion="0.5084746" vertical-offset="0" max-vertical-offset="413">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="34" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.85472155" vertical-offset="307" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/register.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.59585494" vertical-offset="385" max-vertical-offset="1470">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="45" selection-start="4444" selection-end="4444" vertical-scroll-proportion="-15.0" vertical-offset="1245" max-vertical-offset="2340">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="0" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.0" vertical-offset="1185" max-vertical-offset="2925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/CreateNotedrop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="0" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.610052" vertical-offset="893" max-vertical-offset="1470">
           <folding />
         </state>
       </provider>

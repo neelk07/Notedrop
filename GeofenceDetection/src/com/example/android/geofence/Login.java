@@ -115,38 +115,6 @@ public class Login extends Activity {
         }
     }
 
-    private class CreateNote extends AsyncTask<Void,Void,Void> {
-
-
-        @Override
-        protected Void doInBackground(Void... params) {
-
-            try {
-                note = Request.createNote("testing note input", "12.2323", "23.23232", "43", "12/23/43", "11/23/45", "534a28defe22930200f3b999");
-            } catch (JSONException e) {
-                note = new JSONObject();
-            }
-
-            return null;
-        }
-
-        @Override
-        protected void onProgressUpdate(Void...error){
-
-        }
-
-
-        @Override
-        protected void onPostExecute(Void worked) {
-            response.setText(note.toString());
-            //login_made = checkResponse(user);
-            //if (login_made)
-            //    response.setText(user.toString());
-                //moveToMap(); //move to map
-        }
-    }
-
-
     public boolean checkResponse(JSONObject user)
     {
         if(user == null)
