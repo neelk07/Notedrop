@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.android.geofence.REST.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.*;
 import java.security.NoSuchAlgorithmException;
 
 /**
@@ -28,15 +30,19 @@ public class Login extends Activity {
     Button login;
     JSONObject user;
     JSONObject note;
+    File userInfo;
 
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        retrieveViews();
 
-        //Intent i = new Intent(this, Registration.class);
-        //startActivity(i);
+        //get views
+        retrieveViews();
+        //get cached json file
+        userInfo = new File(this.getFilesDir().getPath(), "userInfo.json");
+
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,14 +50,14 @@ public class Login extends Activity {
                 username_text = username.getText().toString();
                 password_text = password.getText().toString();
                 response.setText("Request Sent");
-                /*
+
                 try {
                     password_text = Request.md5Hash(password_text);
                 } catch (NoSuchAlgorithmException e) {
                     e.printStackTrace();
                 }
-                */
-                new Register().execute();
+
+                new LoginUser().execute();
             }
         });
 
@@ -65,7 +71,7 @@ public class Login extends Activity {
         login = (Button)findViewById(R.id.login_btn);
     }
 
-    private class Register extends AsyncTask<Void,Void,Void> {
+    private class LoginUser extends AsyncTask<Void,Void,Void> {
 
 
         @Override
@@ -87,9 +93,22 @@ public class Login extends Activity {
         @Override
         protected void onPostExecute(Void worked) {
             login_made = checkResponse(user);
-            new CreateNote().execute();
+            if(login_made)
+            {
+                cacheLoginJson(user, userInfo);
+                try {
+                user = readCachedLoginJSON(userInfo);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
+                moveToMap();
+            }
 
+            response.setText(user.toString());
+            //new CreateNote().execute();
             //if (login_made)
             //    moveToMap(); //move to map
         }
@@ -159,5 +178,55 @@ public class Login extends Activity {
         Intent i = new Intent(this,GeofenceMap.class);
         startActivity(i);
     }
+
+    public void cacheLoginJson(JSONObject user, File userInfo)
+    {
+        if (!userInfo.exists()) {
+            try
+            {
+                if(!userInfo.createNewFile())
+                {
+                    Toast.makeText(this, "Couldn't Create Save Path", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    FileWriter writer = new FileWriter(userInfo);
+                    writer.write(user.toString());
+                    writer.close();
+
+                    FileReader reader = new FileReader(userInfo);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(this,"Couldn't Create Save Path",Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(this,"Using cached file for user",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    public JSONObject readCachedLoginJSON(File file) throws IOException, JSONException {
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
+            }
+            String response = sb.toString();
+            JSONObject object = new JSONObject(response);
+            return object;
+        } finally {
+            br.close();
+        }
+    }
+
 
 }
