@@ -143,12 +143,16 @@
       <file leaf-file-name="Request.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/REST/Request.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="237" column="5" selection-start="7837" selection-end="7837" vertical-scroll-proportion="0.701581" vertical-offset="335" max-vertical-offset="1350">
+            <state line="435" column="29" selection-start="14140" selection-end="14140" vertical-scroll-proportion="0.8517786" vertical-offset="1159" max-vertical-offset="2115">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#createUser#0;class#Request#0" expanded="false" />
                 <element signature="method#loginUser#0;class#Request#0" expanded="false" />
                 <element signature="method#getUser#0;class#Request#0" expanded="false" />
+                <element signature="method#createNote#0;class#Request#0" expanded="false" />
+                <element signature="method#getNote#0;class#Request#0" expanded="false" />
+                <element signature="method#md5Hash#0;class#Request#0" expanded="false" />
+                <element signature="method#convertInputStreamToString#0;class#Request#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -1039,12 +1043,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/android/geofence/REST/Request.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="5" selection-start="7837" selection-end="7837" vertical-scroll-proportion="0.701581" vertical-offset="335" max-vertical-offset="1350">
+        <state line="435" column="29" selection-start="14140" selection-end="14140" vertical-scroll-proportion="0.8517786" vertical-offset="1159" max-vertical-offset="2115">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#Request#0" expanded="false" />
             <element signature="method#loginUser#0;class#Request#0" expanded="false" />
             <element signature="method#getUser#0;class#Request#0" expanded="false" />
+            <element signature="method#createNote#0;class#Request#0" expanded="false" />
+            <element signature="method#getNote#0;class#Request#0" expanded="false" />
+            <element signature="method#md5Hash#0;class#Request#0" expanded="false" />
+            <element signature="method#convertInputStreamToString#0;class#Request#0" expanded="false" />
           </folding>
         </state>
       </provider>

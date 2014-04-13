@@ -1,5 +1,6 @@
 package com.example.android.geofence.REST;
 
+import android.app.DownloadManager;
 import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -7,6 +8,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
@@ -29,6 +31,8 @@ public class Request {
     private static final String CREATE_USER_URL = DOMAIN + "/user/create";
     private static final String LOGIN_USER_URL = DOMAIN + "/user/login";
     private static final String GET_USER_URL = DOMAIN + "/user/get/";
+    private static final String GET_NOTE_URL = DOMAIN + "/note/get/";
+    private static final String DELETE_NOTE_URL = DOMAIN + "/note/delete";
     private static final String UPDATE_USER_URL = DOMAIN + "/user/update";
 
     private static final String CREATE_NOTE_URL = DOMAIN + "/note/create";
@@ -36,9 +40,9 @@ public class Request {
 
 
     public static String createUser(String username, String password) throws JSONException {
-        // String response
-        InputStream inputStream = null;
-        String result = "";
+            // String response
+            InputStream inputStream = null;
+            String result = "";
 
             // 1. create HttpClient
             HttpClient httpclient = new DefaultHttpClient();
@@ -232,12 +236,222 @@ public class Request {
         return null;
     }
 
-    public static JSONObject createNote(String text, String latitude, String longitude, String radius, String start_date, String end_date, String users)
-    {
+    public static JSONObject createNote(String text, String latitude, String longitude, String radius, String start_date, String end_date, String [] users) throws JSONException {
+        // String response
+        InputStream inputStream = null;
+        String result = "";
 
+        // 1. create HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // 2. make POST request to the given URL
+        HttpPost httpPost = new HttpPost(CREATE_USER_URL);
+
+        String json = "";
+
+        // 3. build jsonObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("text", text);
+        jsonObject.accumulate("latitude", latitude);
+        jsonObject.accumulate("longitude", longitude);
+        jsonObject.accumulate("radius", radius);
+        jsonObject.accumulate("startDate", start_date);
+        jsonObject.accumulate("endDate",end_date);
+        jsonObject.accumulate("users", users);
+
+        // 4. convert JSONObject to JSON to String
+        json = jsonObject.toString();
+
+        // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+        // ObjectMapper mapper = new ObjectMapper();
+        // json = mapper.writeValueAsString(person);
+
+        // 5. set json to StringEntity
+        StringEntity se = null;
+        try {
+            se = new StringEntity(json, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 6. set httpPost Entity
+        httpPost.setEntity(se);
+
+        // 7. Set some headers to inform server about the type of the content
+        httpPost.setHeader("Accept", "application/json");
+        httpPost.setHeader("Content-type", "application/json");
+
+        // 8. Execute POST request to the given URL
+        HttpResponse httpResponse = null;
+
+        try {
+            httpResponse = httpclient.execute(httpPost);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = EntityUtils.toString(httpResponse.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject object = new JSONObject(result);
+        if(object.getBoolean("success") == true)
+            return object;
+        else
+            return null;
     }
 
+    public static JSONObject getNote(String note_id){
+        // String response
+        InputStream inputStream = null;
+        String result = "";
 
+        // 1. create HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // 2. make POST request to the given URL
+        HttpGet httpGet = new HttpGet(GET_NOTE_URL + note_id);
+
+        /*
+        String json = "";
+
+        // 3. build jsonObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("username", username);
+        jsonObject.accumulate("password", password);
+
+        // 4. convert JSONObject to JSON to String
+        json = jsonObject.toString();
+
+        // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+        // ObjectMapper mapper = new ObjectMapper();
+        // json = mapper.writeValueAsString(person);
+
+        // 5. set json to StringEntity
+        StringEntity se = null;
+        try {
+            se = new StringEntity(json, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 6. set httpPost Entity
+        httpPut.setEntity(se);
+        */
+
+        // 7. Set some headers to inform server about the type of the content
+        httpGet.setHeader("Accept", "application/json");
+        httpGet.setHeader("Content-type", "application/json");
+
+        // 8. Execute POST request to the given URL
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpclient.execute(httpGet);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = EntityUtils.toString(httpResponse.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject object = null;
+        try {
+            object = new JSONObject(result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if(object.getBoolean("success") == true)
+                return object;
+            else
+                return null;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static boolean deleteNote(String note_id) throws JSONException {
+        // String response
+        InputStream inputStream = null;
+        String result = "";
+
+        // 1. create HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // 2. make POST request to the given URL
+        HttpDelete httpDelete = new HttpDelete(DELETE_NOTE_URL);
+
+
+        String json = "";
+
+        // 3. build jsonObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("noteID", note_id);
+
+        // 4. convert JSONObject to JSON to String
+        json = jsonObject.toString();
+
+
+        // ** Alternative way to convert Person object to JSON string usin Jackson Lib
+        // ObjectMapper mapper = new ObjectMapper();
+        // json = mapper.writeValueAsString(person);
+
+        // 5. set json to StringEntity
+        StringEntity se = null;
+        try {
+            se = new StringEntity(json, "UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        // 6. set httpPost Entity
+        httpDelete.setEntity(se);
+
+
+        // 7. Set some headers to inform server about the type of the content
+        httpDelete.setHeader("Accept", "application/json");
+        httpDelete.setHeader("Content-type", "application/json");
+
+        // 8. Execute POST request to the given URL
+        HttpResponse httpResponse = null;
+        try {
+            httpResponse = httpclient.execute(httpDelete);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            result = EntityUtils.toString(httpResponse.getEntity());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject object = null;
+        try {
+            object = new JSONObject(result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            if(object.getBoolean("success") == true)
+                return true;
+            else
+                return false;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
     public static String md5Hash(String input) throws NoSuchAlgorithmException {
 
