@@ -58,6 +58,7 @@
         <activity android:name=".Registration"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".GeofenceMap"/>
+        <activity android:name=".Home"/>
         <service android:name="com.example.android.geofence.ReceiveTransitionsIntentService" android:exported="false"></service>
     </application>
 
